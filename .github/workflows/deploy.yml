@@ -29,6 +29,7 @@ jobs:
           host: ${{ secrets.SERVER_HOST_STAGING }}
           username: ${{ secrets.SERVER_USERNAME_STAGING }}
           key: ${{ secrets.SSH_PRIVATE_KEY_STAGING }}
+          passphrase: ${{ secrets.PASSPHRASE_STAGING }}
           port: 88
           source: dist.zip
           target: ~/
