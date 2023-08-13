@@ -40,6 +40,7 @@ jobs:
           host: ${{ secrets.SERVER_HOST_STAGING }}
           username: ${{ secrets.SERVER_USERNAME_STAGING }}
           key: ${{ secrets.SSH_PRIVATE_KEY_STAGING }}
+          passphrase: ${{ secrets.PASSPHRASE_STAGING }}
           script: |
             # Unzip dist.zip in home directory
             unzip ~/dist.zip
