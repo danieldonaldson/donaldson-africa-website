@@ -1,0 +1,59 @@
+name: Deploy to Server
+
+on:
+  push:
+    branches:
+      - staging  # Adjust the branch as needed
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Install dependencies and build (replace with actual build steps)
+        run: |
+          npm install  # Replace with your build commands
+
+      - name: Zip dist directory
+        run: zip -r dist.zip dist
+
+      - name: Copy dist.zip to server
+        uses: appleboy/scp-action@master
+        with:
+          host: ${{ secrets.SERVER_HOST_STAGING }}
+          username: ${{ secrets.SERVER_USERNAME_STAGING }}
+          key: ${{ secrets.SSH_PRIVATE_KEY_STAGING }}
+          port: 88
+          source: dist.zip
+          target: ~/
+
+      - name: SSH into server and deploy
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.SERVER_HOST_STAGING }}
+          username: ${{ secrets.SERVER_USERNAME_STAGING }}
+          key: ${{ secrets.SSH_PRIVATE_KEY_STAGING }}
+          script: |
+            # Unzip dist.zip in home directory
+            unzip ~/dist.zip
+
+            # Copy the contents of dist/ to /var/www/
+            sudo cp -r ~/dist/* /var/www/
+
+            # Copy permissions from html/ to the new files in /var/www/
+            sudo cp -rp /var/www/html/* /var/www/
+
+            # Delete the old html directory
+            sudo rm -r /var/www/html
+
+            # Rename dist/ to html/
+            sudo mv /var/www/dist /var/www/html
+
+            # Delete the old .zip file and unzipped directory
+            rm ~/dist.zip
+            rm -r ~/dist
+
+          port: 22
