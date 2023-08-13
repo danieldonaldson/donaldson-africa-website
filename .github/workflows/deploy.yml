@@ -3,7 +3,7 @@ name: Deploy to Staging Server
 on:
   push:
     branches:
-      - staging  # Adjust the branch as needed
+      - staging
 
 jobs:
   deploy:
@@ -15,10 +15,7 @@ jobs:
 
       - name: Install dependencies and build (replace with actual build steps)
         run: |
-          npm install  # Replace with your build commands
-
-      - name: install gulp
-        run: npm install --global gulp-cli
+          npm install
 
       - name: build
         run: gulp build
