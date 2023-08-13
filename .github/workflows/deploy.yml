@@ -13,7 +13,7 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
 
-      - name: Install dependencies and build (replace with actual build steps)
+      - name: Install dependencies and build
         run: |
           npm install
 
@@ -61,4 +61,4 @@ jobs:
             rm ~/dist.zip
             rm -r ~/dist
 
-          port: 22
+          port: 88
