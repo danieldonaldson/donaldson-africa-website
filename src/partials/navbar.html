@@ -1,0 +1,64 @@
+<nav class="navbar navbar-expand-xl navbar-@@type @@if ( togglable ) { navbar-togglable } fixed-top">
+  <div class="container">
+
+    <!-- Brand -->
+    <a class="navbar-brand" href="index.html">
+      <svg class="navbar-brand-svg" viewBox="0 0 200 80" xmlns="http://www.w3.org/2000/svg"
+        xmlns:xlink="http://www.w3.org/1999/xlink">
+        <!-- <path d="M0 0 L 20 10 L 0 20 Z" class="navbar-brand-svg-i" fill="currentColor"></path>
+        <path d="M0 30 L 20 40 L 0 50 Z M20 45 L 0 55 L 20 65 Z M0 60 L 20 70 L 0 80 Z" fill="currentColor"></path> -->
+        <text x="40" y="70" font-family="Edwardian Script ITC" font-size="80" letter-spacing="-.025em"
+          fill="currentColor">D</text>
+        <!-- <text x="40" y="70" font-family="Arial, sans-serif" font-size="50" font-weight="bold" letter-spacing="-.025em" fill="currentColor">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Donaldson Attorneys</text> -->
+      </svg>
+    </a>
+
+    @@if ( links ) {
+    <!-- Toggler -->
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse"
+      aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <!-- Collapse -->
+    <div class="collapse navbar-collapse" id="navbarCollapse">
+
+      <!-- Links -->
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item @@if ( page == 'home.html' ) { active }">
+          <a href="home.html" class="nav-link">
+            Home
+          </a>
+        </li>
+        <li class="nav-item @@if ( page == 'services.html' ) { active }">
+          <a href="services.html" class="nav-link">
+            Services
+          </a>
+        </li>
+        <li class="nav-item @@if ( page == 'about.html' ) { active }">
+          <a href="about.html" class="nav-link">
+            About us
+          </a>
+        </li>
+        <li class="nav-item @@if ( page == 'contact.html' ) { active }">
+          <a href="contact.html" class="nav-link">
+            Contact us
+          </a>
+        </li>
+        <li class="nav-item-divider">
+          <span class="nav-link">
+            <span></span>
+          </span>
+        </li>
+        <li class="nav-item@@if ( page == 'sign-in.html' ) { active }">
+          <a href="sign-in.html" class="nav-link">
+            Client Login
+          </a>
+        </li>
+      </ul>
+
+    </div> <!-- / .navbar-collapse -->
+    }
+
+  </div> <!-- / .container -->
+</nav>
