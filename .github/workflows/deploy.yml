@@ -46,10 +46,10 @@ jobs:
             sudo cp -rp /var/www/html/ /var/www/dist/
 
             # Delete the old html directory
-            sudo rm -r /var/www/html
+            sudo rm -r /var/www/donaldson.africa
 
-            # Rename dist/ to html/
-            sudo mv /var/www/dist /var/www/html
+            # Rename dist/ to donaldson.africa/
+            sudo mv /var/www/dist /var/www/donaldson.africa
 
             # Delete the old .zip file and unzipped directory
             rm -r ~/dist
