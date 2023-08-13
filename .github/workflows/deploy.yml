@@ -1,4 +1,4 @@
-name: Deploy to Server
+name: Deploy to Staging Server
 
 on:
   push:
@@ -16,6 +16,12 @@ jobs:
       - name: Install dependencies and build (replace with actual build steps)
         run: |
           npm install  # Replace with your build commands
+
+      - name: install gulp
+        run: npm install --global gulp-cli
+
+      - name: build
+        run: gulp build
 
       - name: Zip dist directory
         run: zip -r dist.zip dist
