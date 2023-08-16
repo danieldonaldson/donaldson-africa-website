@@ -17,7 +17,7 @@ $("#messageUs").submit(function (e) {
                 url: 'api/v0/captcha',
                 type: 'POST',
                 data: {
-                    site: 'donaldson.africa',
+                    site: 'donaldson_africa',
                     name: $('#contactName').val(),
                     email: $('#contactEmail').val(),
                     // contactNumber: $('#contactNumber').val(),
