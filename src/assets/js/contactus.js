@@ -13,14 +13,11 @@ $("#messageUs").submit(function (e) {
         grecaptcha.execute('6LdrxqcnAAAAANGpfPhIGzWvPRAniLMTWp1eznv4', {
             action: 'contactUs'
         }).then(function (token) {
-            // add token to form
-            // $('#messageUs').prepend(
-            //     '<input type="hidden" name="g-recaptcha-response" value="' + token +
-            //     '">');
             $.ajax({
                 url: 'api/v0/captcha',
                 type: 'POST',
                 data: {
+                    site: 'donaldson.africa',
                     name: $('#contactName').val(),
                     email: $('#contactEmail').val(),
                     // contactNumber: $('#contactNumber').val(),
