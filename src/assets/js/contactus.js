@@ -26,7 +26,7 @@ $("#messageUs").submit(function (e) {
                     // contactNumber: $('#contactNumber').val(),
                     message: $('#message').val(),
                     // messageSubject: $('#messageSubject').val(),
-                    gtoken: token
+                    'g-recaptcha-response': token
                 },
                 success: function (msg) {
                     $("#successmsg").html(
