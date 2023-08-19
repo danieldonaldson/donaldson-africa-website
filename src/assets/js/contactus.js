@@ -10,7 +10,7 @@ $("#messageUs").submit(function (e) {
     grecaptcha.ready(function () {
         // do request for recaptcha token
         // response is promise with passed token
-        grecaptcha.execute('6LdrxqcnAAAAANGpfPhIGzWvPRAniLMTWp1eznv4', {
+        grecaptcha.execute('6LdXmrsnAAAAAFiOD0zoXJ-owoUhc5xhSvQK_C_4', {
             action: 'contactUs'
         }).then(function (token) {
             $.ajax({
