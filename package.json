@@ -1,10 +1,10 @@
 {
   "private": true,
-  "name": "Incline",
-  "version": "1.0.9",
-  "description": "Landing page set",
+  "name": "donaldson-africa-website",
+  "version": "1.2.0",
+  "description": "Donaldson Africa Website",
   "main": "gulpfile.js",
-  "author": "Simpleqode",
+  "author": "Daniel Donaldson",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
