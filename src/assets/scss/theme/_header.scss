@@ -21,3 +21,11 @@
   object-fit: cover;
   object-position: center center;
 }
+
+.about-header {
+  padding-bottom: 60%;
+  
+  @include media-breakpoint-up(md){
+    padding-bottom: 40%;
+  }
+}

@@ -2,3 +2,4 @@ node_modules/
 dist/
 src/.tmp/
 dist.zip
+src/assets/css/*
