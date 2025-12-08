@@ -17,10 +17,9 @@
     // Events 
     // =======
     if (video) {
-        source.setAttribute('src', 'assets/video/' + vidNo + '.mp4');
-    video.load();
-    video.play();
-
+        source.setAttribute('src', '/assets/video/' + vidNo + '.mp4');
+        video.load();
+        video.play();
     }
     
 

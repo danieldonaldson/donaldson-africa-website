@@ -1,28 +1,14 @@
-<!doctype html>
-<html lang="en">
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
 
-<head>
-  @@include("partials/head.html", {
-  "css": "theme",
-  "title": "Donaldson Attorneys | Welcome"
-  })
-</head>
-
-<body>
-
-  <!-- NAVBAR
-    ================================================= -->
-  @@include("partials/navbar.html", {
-  "togglable": true,
-  "type": "dark",
-  "page": "home.html",
-  "button": {
-  "url": "contact.html",
-  "text": "Contact us"
-  },
-  "links": true
-  })
-
+<BaseLayout
+  title="Donaldson Attorneys | Welcome"
+  navbarType="dark"
+  navbarTogglable={true}
+  page="home"
+  footerType="dark"
+>
   <!-- HERO
     ================================================== -->
   <section class="section section-top section-full">
@@ -30,7 +16,7 @@
     <!-- Video -->
     <div class="bg-video">
       <video class="bg-video-media" id="bg-video" autoplay playsinline muted loop>
-        <source id="random-src" src="assets/video/0.mp4" type="video/mp4">
+        <source id="random-src" src="/assets/video/0.mp4" type="video/mp4">
         HTML video is not supported by your browser.
       </video>
     </div>
@@ -68,16 +54,16 @@
           <!-- <div class="row justify-content-center align-items-center">
               <div class="col-md-4">
                 <p class="text-center mb-0" data-toggle="animation" data-animation="fadeUp" data-animation-order="3" data-animation-trigger="load">
-                  <a href="sign-in.html" class="btn btn-outline-primary text-white">
+                  <a href="/sign-in" class="btn btn-outline-primary text-white">
                     Client login
                   </a>
                 </p>
               </div>
-            
+
 
               <div class="col-md-4">
                 <p class="text-center mb-0" data-toggle="animation" data-animation="fadeUp" data-animation-order="3" data-animation-trigger="load">
-                  <a href="contact.html" class="btn btn-outline-primary text-white">
+                  <a href="/contact" class="btn btn-outline-primary text-white">
                     Contact us
                   </a>
                 </p>
@@ -124,7 +110,7 @@
 
           </p>
           <p>
-            <a href="contact.html" class="btn btn-outline-primary">
+            <a href="/contact" class="btn btn-outline-primary">
               Get in touch with us
             </a>
           </p>
@@ -135,11 +121,11 @@
           <!-- Blockquote -->
           <blockquote class="blockquote border-left">
             <p>
-              “A service-driven, results orientated firm.”
+              "A service-driven, results orientated firm."
             </p>
             <!-- <footer class="text-muted">
                 <div class="avatar avatar mr-3">
-                  <img src="assets/img/16.jpg" alt="..." class="img-cover rounded-circle">
+                  <img src="/assets/img/16.jpg" alt="..." class="img-cover rounded-circle">
                 </div> Daniel, Johannesburg
               </footer> -->
           </blockquote>
@@ -260,7 +246,7 @@
 
           <!-- Image -->
           <div class="img-half img-half-left">
-            <img src="assets/img/59.jpg" alt="..." class="img-cover">
+            <img src="/assets/img/59.jpg" alt="..." class="img-cover">
           </div>
 
         </div>
@@ -279,7 +265,7 @@
           </p>
 
           <!-- Button -->
-          <a href="services.html" class="btn btn-outline-primary">
+          <a href="/services" class="btn btn-outline-primary">
             See our services
           </a>
 
@@ -316,7 +302,7 @@
         <div class="col-md-4">
 
           <!-- Button -->
-          <a href="contact.html" class="btn btn-outline-primary">
+          <a href="/contact" class="btn btn-outline-primary">
             Contact us
           </a>
 
@@ -325,17 +311,4 @@
     </div> <!-- / .container -->
 
   </section>
-
-  <!-- FOOTER
-    ================================================== -->
-  @@include("partials/footer.html", {
-  "type": "dark"
-  })
-
-  <!-- JAVASCRIPT
-    ================================================== -->
-  @@include("partials/scripts.html")
-
-</body>
-
-</html>
+</BaseLayout>

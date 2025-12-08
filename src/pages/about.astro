@@ -1,28 +1,14 @@
-<!doctype html>
-<html lang="en">
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
 
-<head>
-  @@include("partials/head.html", {
-  "css": "theme",
-  "title": "Donaldson Attorneys | About"
-  })
-</head>
-
-<body>
-
-  <!-- NAVBAR
-    ================================================= -->
-  @@include("partials/navbar.html", {
-  "togglable": false,
-  "type": "light",
-  "page": "about.html",
-  "button": {
-  "url": "contact.html",
-  "text": "Contact us"
-  },
-  "links": true
-  })
-
+<BaseLayout
+  title="Donaldson Attorneys | About"
+  navbarType="light"
+  navbarTogglable={false}
+  page="about"
+  footerType="dark"
+>
   <!-- BREADCRUMB
     ================================================== -->
   <nav class="breadcrumb">
@@ -40,7 +26,7 @@
 
           <!-- Breadcrumb -->
           <span class="breadcrumb-item">
-            <a href="index.html">Home</a>
+            <a href="/">Home</a>
           </span>
           <span class="breadcrumb-item active">
             About
@@ -61,7 +47,7 @@
         <div class="col">
 
           <!-- Header -->
-          <div class="header bg-cover" style="background-image: url(assets/img/15.jpg);"></div>
+          <div class="header bg-cover" style="background-image: url(/assets/img/15.jpg);"></div>
 
         </div>
       </div> <!-- / .row -->
@@ -192,7 +178,7 @@
             <div class="card card-sm border-0 mb-4 mb-md-0">
 
               <!-- Image -->
-              <img src="assets/img/male-avatar.png" alt="..." class="card-img-top">
+              <img src="/assets/img/male-avatar.png" alt="..." class="card-img-top">
 
               <!-- Body -->
               <div class="card-body">
@@ -216,7 +202,7 @@
             <div class="card card-sm border-0 mb-4 mb-md-0">
 
               <!-- Image -->
-              <img src="assets/img/user.png" alt="..." class="card-img-top">
+              <img src="/assets/img/user.png" alt="..." class="card-img-top">
 
               <!-- Body -->
               <div class="card-body">
@@ -241,7 +227,7 @@
             <div class="card card-sm border-0 mb-4 mb-md-0">
 
               <!-- Image -->
-              <img src="assets/img/male-avatar.png" alt="..." class="card-img-top">
+              <img src="/assets/img/male-avatar.png" alt="..." class="card-img-top">
 
               <!-- Body -->
               <div class="card-body">
@@ -307,7 +293,7 @@
         <!-- Text -->
         <p class="text-muted mb-5">
           In a similar fashion to Mr Donaldson, Ms van Straaten has been employed as an attorney / Professional
-          Assistant at two different law firms, as an Associate at The Labour Counsel and “Head of Legal” for a large
+          Assistant at two different law firms, as an Associate at The Labour Counsel and "Head of Legal" for a large
           corporation. As a result of the aforementioned, Ms van Straaten has excelled in debt collection and compliance
           management as well as Labour and Family Law. A notable competency of Ms van Straaten is corporate
           restructurings where she has experienced exceptional success, having furthermore recently won a contentious
@@ -380,17 +366,4 @@
     </div> <!-- / .container -->
 
   </section>
-
-  <!-- FOOTER
-  ================================================== -->
-  @@include("partials/footer.html", {
-  "type": "dark"
-  })
-
-  <!-- JAVASCRIPT
-    ================================================== -->
-  @@include("partials/scripts.html")
-
-</body>
-
-</html>
+</BaseLayout>

@@ -1,24 +1,15 @@
-<!doctype html>
-<html lang="en">
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
 
-<head>
-  @@include("partials/head.html", {
-  "css": "theme",
-  "title": "Donaldson Attorneys | Sign In"
-  })
-</head>
-
-<body>
-
-  <!-- NAVBAR
-    ================================================= -->
-  @@include("partials/navbar.html", {
-  "togglable": false,
-  "type": "dark",
-  "page": "sign-in.html",
-  "links": false
-  })
-
+<BaseLayout
+  title="Donaldson Attorneys | Sign In"
+  navbarType="dark"
+  navbarTogglable={false}
+  navbarLinks={false}
+  page="sign-in"
+  footerType="black"
+>
   <!-- FULLPAGE
     ================================================== -->
   <section class="section section-full section-top bg-black">
@@ -29,7 +20,7 @@
         <div class="col-md-8 col-lg-6">
 
           <!-- Form -->
-          <form class="form-styled bg-white" action="/not-registered.html" method="GET">
+          <form class="form-styled bg-white" action="/not-registered" method="GET">
 
             <!-- Heading -->
             <h4 class="text-center mb-4">
@@ -112,7 +103,7 @@
             <!-- Link -->
             <p class="text-center text-muted mt-5 mb-0">
               <small>
-                Not a member yet? <a href="sign-up.html">Sign up</a>.
+                Not a member yet? <a href="/sign-up">Sign up</a>.
               </small>
             </p>
 
@@ -123,18 +114,4 @@
     </div> <!-- / .container -->
 
   </section>
-
-  <!-- FOOTER
-    ================================================== -->
-  <!-- @@include("partials/footer.html") -->
-  @@include("partials/footer.html", {
-  "type": "black"
-  })
-
-  <!-- JAVASCRIPT
-    ================================================== -->
-  @@include("partials/scripts.html")
-
-</body>
-
-</html>
+</BaseLayout>

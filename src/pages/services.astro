@@ -1,28 +1,14 @@
-<!doctype html>
-<html lang="en">
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
 
-<head>
-  @@include("partials/head.html", {
-  "css": "theme",
-  "title": "Donaldson Attorneys | Services"
-  })
-</head>
-
-<body>
-
-  <!-- NAVBAR
-    ================================================= -->
-  @@include("partials/navbar.html", {
-  "togglable": false,
-  "type": "light",
-  "page": "services.html",
-  "button": {
-  "url": "contact.html",
-  "text": "Contact us"
-  },
-  "links": true
-  })
-
+<BaseLayout
+  title="Donaldson Attorneys | Services"
+  navbarType="light"
+  navbarTogglable={false}
+  page="services"
+  footerType="dark"
+>
   <!-- BREADCRUMB
     ================================================== -->
   <nav class="breadcrumb">
@@ -40,7 +26,7 @@
 
           <!-- Breadcrumb -->
           <span class="breadcrumb-item">
-            <a href="index.html">Home</a>
+            <a href="/">Home</a>
           </span>
           <span class="breadcrumb-item active">
             Services
@@ -61,7 +47,7 @@
         <div class="col">
 
           <!-- Header -->
-          <div class="header bg-cover" style="background-image: url(assets/img/ben-rosett-WdJkXFQ4VHY-unsplash.jpg);">
+          <div class="header bg-cover" style="background-image: url(/assets/img/ben-rosett-WdJkXFQ4VHY-unsplash.jpg);">
           </div>
 
         </div>
@@ -131,17 +117,17 @@
         </div>
 
       </div> <!-- / .row -->
-      
-      <a href="correspondent.html">
+
+      <a href="/correspondent">
         <div class="row">
           <div class="col-md-2">
 
             <!-- Title -->
-            
+
               <h6 class="title">
                 CORRESPONDENT SERVICES
               </h6>
-            
+
 
           </div>
           <div class="col-md-10">
@@ -157,10 +143,10 @@
                 <ul style="padding-left: 30px;">
                   <li>Johannesburg Labour Court</li>
                   <li>The Gauteng Local Division of the High Court</li>
-                  <li>Randburg Magistrate’s Court</li>
-                  <li>Roodepoort Magistrate’s Court</li>
-                  <li>Krugersdorp Magistrate’s Court</li>
-                  <li>Newlands Magistrate’s Court</li>
+                  <li>Randburg Magistrate's Court</li>
+                  <li>Roodepoort Magistrate's Court</li>
+                  <li>Krugersdorp Magistrate's Court</li>
+                  <li>Newlands Magistrate's Court</li>
                   <li>Pretoria High Court</li>
                 </ul>
               </li>
@@ -228,7 +214,7 @@
             <li>Proceedings relating to access to and custody of minor children, inclusive but not limited to parental
               plan agreements; </li>
             <li>Guardianship Applications; </li>
-            <li>Proceedings through the Children’s Court; </li>
+            <li>Proceedings through the Children's Court; </li>
             <li>Protection Order Applications.</li>
             <li>Drafting of Last Will and Testaments. </li>
             <li>Section 18 of the Immigration Act Relative's Visa Applications, inclusive of Appeals, Applications in
@@ -334,18 +320,106 @@
 
   <!-- CONTACT
     ================================================== -->
-  @@include("partials/contactus.html")
-
-  <!-- FOOTER
+  <!-- FORM
     ================================================== -->
-  @@include("partials/footer.html", {
-  "type": "dark"
-  })
+  <section class="section pb-0">
 
-  <!-- JAVASCRIPT
-    ================================================== -->
-  @@include("partials/scripts.html")
+    <!-- Content -->
+    <div class="container">
+        <div class="row">
+            <div class="col-md-2">
 
-</body>
+                <!-- Title -->
+                <h6 class="title">
+                    Contact form and information
+                </h6>
 
-</html>
+            </div>
+            <div class="col-md-10">
+
+                <!-- Heading -->
+                <h3 class="mb-4">
+                    Have questions? Send us an <span class="text-primary">e-mail</span>
+                </h3>
+
+                <!-- Subheading -->
+                <p class="text-muted mb-5">
+
+                </p>
+
+                <!-- Form -->
+                <form id="messageUs">
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+
+                            <!-- Name -->
+                            <label>Full name</label>
+                            <div class="input-group">
+                                <input type="text" class="form-control order-1" name="contact-name" id='contactName'>
+                                <div class="input-group-append order-0">
+                                    <div class="input-group-text">
+                                        <svg class="input-group-icon icon-offset icon icon-person" viewBox="0 0 106 106"
+                                            xmlns="http://www.w3.org/2000/svg"
+                                            xmlns:xlink="http://www.w3.org/1999/xlink">
+                                            <path transform="translate(3 3)" d="
+                              M0 100 A 50 50 0 0 1 50 60 A 20 20 0 0 1 50 0 A 20 20 0 0 1 50 60 A 50 50 0 0 1 100 100">
+                                            </path>
+                                        </svg>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="form-group col-md-6">
+
+                            <!-- Email -->
+                            <label>Email address</label>
+                            <div class="input-group">
+                                <input type="email" class="form-control order-1" name="contact-email" id="contactEmail">
+                                <div class="input-group-append order-0">
+                                    <div class="input-group-text">
+                                        <svg class="input-group-icon icon-offset icon icon-envelope"
+                                            viewBox="0 0 106 106" xmlns="http://www.w3.org/2000/svg"
+                                            xmlns:xlink="http://www.w3.org/1999/xlink">
+                                            <path transform="translate(3 3)" d="
+                              M0 30 V 10 H 100 V 90 H 0 V 30 L 50 60 L 100 30">
+                                            </path>
+                                        </svg>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div> <!-- / .form-row -->
+                    <div class="form-row">
+                        <div class="form-group col-12">
+
+                            <!-- Message -->
+                            <label>Your comments</label>
+                            <textarea class="form-control" name="contact-message" rows="7" id="message"></textarea>
+
+                        </div>
+                    </div> <!-- / .form-row -->
+                    <div class="form-row">
+                        <div class="col-12" id="successmsg">
+
+                            <!-- Submit -->
+                            <button type="submit" class="btn btn-outline-primary">
+                                Send message
+                            </button>
+                            <p></p>
+                            <p>This site is protected by reCAPTCHA and the Google
+                                <a href="https://policies.google.com/privacy">Privacy Policy</a> and
+                                <a href="https://policies.google.com/terms">Terms of Service</a> apply.
+                            </p>
+
+                        </div>
+                    </div>
+                </form>
+
+            </div>
+        </div> <!-- / .row -->
+    </div> <!-- / .container -->
+
+  </section>
+</BaseLayout>

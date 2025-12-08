@@ -1,28 +1,15 @@
-<!doctype html>
-<html lang="en">
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
 
-<head>
-  @@include("partials/head.html", {
-  "css": "theme",
-  "title": "Donaldson Attorneys | User not registered"
-  })
-</head>
-
-<body>
-
-  <!-- NAVBAR
-    ================================================= -->
-  @@include("partials/navbar.html", {
-  "togglable": false,
-  "type": "dark",
-  "page": "not-registered.html",
-  "button": {
-  "url": "contact.html",
-  "text": "Contact us"
-  },
-  "links": false
-  })
-
+<BaseLayout
+  title="Donaldson Attorneys | User not registered"
+  navbarType="dark"
+  navbarTogglable={false}
+  navbarLinks={false}
+  page="not-registered"
+  footerType="black"
+>
   <!-- FULLPAGE
     ================================================== -->
   <section class="section section-full section-top bg-black">
@@ -43,7 +30,7 @@
             <!-- Subheading -->
             <p class="text-center text-muted mb-5">
               Your email address <span class="user-email"></span> was not found. <br />
-              Please <a href="contact.html">contact us</a> to become a member.
+              Please <a href="/contact">contact us</a> to become a member.
             </p>
 
             <!-- Password -->
@@ -134,7 +121,7 @@
             <!-- Link -->
             <p class="text-center text-muted mt-5 mb-0">
               <small>
-                Already a member? <a href="sign-in.html">Sign in</a>.
+                Already a member? <a href="/sign-in">Sign in</a>.
               </small>
             </p>
 
@@ -145,18 +132,4 @@
     </div> <!-- / .container -->
 
   </section>
-
-  <!-- FOOTER
-    ================================================== -->
-  @@include("partials/footer.html", {
-  "type": "black"
-  })
-
-  <!-- JAVASCRIPT
-    ================================================== -->
-  @@include("partials/scripts.html")
-
-
-</body>
-
-</html>
+</BaseLayout>
