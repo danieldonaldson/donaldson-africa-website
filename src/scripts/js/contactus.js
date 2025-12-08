@@ -21,7 +21,7 @@
         grecaptcha.enterprise.ready(async function() {
             try {
                 // Get reCAPTCHA token
-                const token = await grecaptcha.enterprise.execute('6Lc2sfMZAAAAANHrN90an-E6_cDU69TQ6Pb6RR3Y', {
+                const token = await grecaptcha.enterprise.execute('6Lc2sfMZAAAAANHrN90an-E6_cDU65TQ6Pb6RR3Y', {
                     action: 'contactUs'
                 });
 
