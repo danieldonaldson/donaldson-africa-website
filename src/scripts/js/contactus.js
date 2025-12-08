@@ -25,8 +25,8 @@
                     action: 'contactUs'
                 });
 
-                // Prepare form data
-                const formData = new FormData();
+                // Prepare form data as URL-encoded
+                const formData = new URLSearchParams();
                 formData.append('site', 'donaldson_africa');
                 formData.append('name', document.getElementById('contactName').value);
                 formData.append('email', document.getElementById('contactEmail').value);
@@ -36,7 +36,10 @@
                 // Submit form
                 const response = await fetch('https://captcha.stead.africa/captcha', {
                     method: 'POST',
-                    body: formData
+                    headers: {
+                        'Content-Type': 'application/x-www-form-urlencoded',
+                    },
+                    body: formData.toString()
                 });
 
                 if (response.ok) {
