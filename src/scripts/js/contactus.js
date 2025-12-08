@@ -7,14 +7,14 @@
 
 $("#messageUs").submit(function (e) {
     e.preventDefault();
-    grecaptcha.ready(function () {
+    grecaptcha.enterprise.ready(function () {
         // do request for recaptcha token
         // response is promise with passed token
-        grecaptcha.execute('6LdXmrsnAAAAAFiOD0zoXJ-owoUhc5xhSvQK_C_4', {
+        grecaptcha.enterprise.execute('6Lc2sfMZAAAAANHrN90an-E6_cDU65TQ6Pb6RR3Y', {
             action: 'contactUs'
         }).then(function (token) {
             $.ajax({
-                url: 'api/v0/captcha',
+                url: 'https://captcha.stead.africa/captcha',
                 type: 'POST',
                 data: {
                     site: 'donaldson_africa',
