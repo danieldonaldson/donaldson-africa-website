@@ -1,37 +1,65 @@
 //
-// random.js
+// contactus.js
 // Theme module
 //
 
 'use strict';
 
-$("#messageUs").submit(function (e) {
-    e.preventDefault();
-    grecaptcha.enterprise.ready(function () {
-        // do request for recaptcha token
-        // response is promise with passed token
-        grecaptcha.enterprise.execute('6Lc2sfMZAAAAANHrN90an-E6_cDU65TQ6Pb6RR3Y', {
-            action: 'contactUs'
-        }).then(function (token) {
-            $.ajax({
-                url: 'https://captcha.stead.africa/captcha',
-                type: 'POST',
-                data: {
-                    site: 'donaldson_africa',
-                    name: $('#contactName').val(),
-                    email: $('#contactEmail').val(),
-                    // contactNumber: $('#contactNumber').val(),
-                    message: $('#message').val(),
-                    // messageSubject: $('#messageSubject').val(),
-                    'g-recaptcha-response': token
-                },
-                success: function (msg) {
-                    $("#successmsg").html(
-                        "<p>Thanks for your request! We will be in contact soon</p>"
-                    )
-                    gtag_report_conversion(window.location.href)
+(function() {
+    const form = document.getElementById('messageUs');
+
+    if (!form) return;
+
+    form.addEventListener('submit', function(e) {
+        e.preventDefault();
+
+        if (typeof grecaptcha === 'undefined' || !grecaptcha.enterprise) {
+            console.error('reCAPTCHA enterprise not loaded');
+            return;
+        }
+
+        grecaptcha.enterprise.ready(async function() {
+            try {
+                // Get reCAPTCHA token
+                const token = await grecaptcha.enterprise.execute('6Lc2sfMZAAAAANHrN90an-E6_cDU69TQ6Pb6RR3Y', {
+                    action: 'contactUs'
+                });
+
+                // Prepare form data
+                const formData = new FormData();
+                formData.append('site', 'donaldson_africa');
+                formData.append('name', document.getElementById('contactName').value);
+                formData.append('email', document.getElementById('contactEmail').value);
+                formData.append('message', document.getElementById('message').value);
+                formData.append('g-recaptcha-response', token);
+
+                // Submit form
+                const response = await fetch('https://captcha.stead.africa/captcha', {
+                    method: 'POST',
+                    body: formData
+                });
+
+                if (response.ok) {
+                    const successMsg = document.getElementById('successmsg');
+                    if (successMsg) {
+                        successMsg.innerHTML = '<p>Thanks for your request! We will be in contact soon</p>';
+                    }
+
+                    // Track conversion
+                    if (typeof gtag_report_conversion === 'function') {
+                        gtag_report_conversion(window.location.href);
+                    }
+
+                    // Clear form
+                    form.reset();
+                } else {
+                    console.error('Form submission failed:', response.status, response.statusText);
+                    const errorData = await response.text();
+                    console.error('Error details:', errorData);
                 }
-            });
+            } catch (error) {
+                console.error('Error submitting form:', error);
+            }
         });
     });
-});
+})();
