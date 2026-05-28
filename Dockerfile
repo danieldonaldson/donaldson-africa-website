@@ -1,5 +1,5 @@
 FROM node:26-alpine AS base
-RUN corepack enable
+RUN npm install -g corepack@latest && corepack enable
 
 # Install dependencies
 FROM base AS deps
