@@ -1,0 +1,20 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "donaldson-africa-website",
+  "compatibility_date": "2026-08-01",
+  // Custom Domains: Cloudflare owns these DNS records and points them at this
+  // Worker. No origin server is referenced any more.
+  "routes": [
+    { "pattern": "donaldson.africa", "custom_domain": true },
+    { "pattern": "www.donaldson.africa", "custom_domain": true }
+  ],
+  "assets": {
+    "directory": "./dist",
+    // Serves /about directly from dist/about/index.html with no redirect,
+    // matching the site's own slash-less internal links and the old nginx.
+    "html_handling": "drop-trailing-slash",
+    // The old nginx config fell back to index.html for unknown paths (a copy-pasted
+    // SPA default on a non-SPA site). This returns a real 404 instead.
+    "not_found_handling": "404-page"
+  }
+}
