@@ -12,9 +12,3 @@ updates:
         update-types:
           - "minor"
           - "patch"
-
-  # Dockerfile base image
-  - package-ecosystem: "docker"
-    directory: "/"
-    schedule:
-      interval: "weekly"

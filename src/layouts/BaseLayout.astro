@@ -109,8 +109,8 @@ const canonicalUrl = new URL(Astro.url.pathname.replace(/\/$/, '') || '/', 'http
     <meta property="og:url" content={canonicalUrl}>
   </head>
   <body>
-    {showNavbar && (
     <!-- Navbar -->
+    {showNavbar && (
     <nav class={`navbar navbar-expand-xl navbar-${navbarType} ${navbarTogglable ? 'navbar-togglable' : ''} fixed-top`}>
       <div class="container">
         <!-- Brand -->
@@ -160,8 +160,8 @@ const canonicalUrl = new URL(Astro.url.pathname.replace(/\/$/, '') || '/', 'http
     <!-- Main Content -->
     <slot />
 
-    {showFooter && (
     <!-- Footer -->
+    {showFooter && (
     <footer class={`section bg-${footerType}`}>
       <!-- Triangles -->
       <div class="bg-triangle bg-triangle-light bg-triangle-bottom bg-triangle-left"></div>
