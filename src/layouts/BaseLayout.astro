@@ -1,6 +1,7 @@
 ---
 interface Props {
   title: string;
+  description?: string;
   theme?: 'theme' | 'theme-brown';
   navbarType?: 'light' | 'dark';
   navbarTogglable?: boolean;
@@ -13,6 +14,7 @@ interface Props {
 
 const {
   title,
+  description = 'Donaldson Attorneys Inc. is a service-driven, results orientated law firm in Honeydew, Johannesburg, specialising in labour, commercial, family, criminal law and debt collection.',
   theme = 'theme',
   navbarType = 'light',
   navbarTogglable = false,
@@ -22,6 +24,7 @@ const {
   page = '',
   footerType = 'dark'
 } = Astro.props;
+const canonicalUrl = new URL(Astro.url.pathname.replace(/\/$/, '') || '/', 'https://donaldson.africa');
 ---
 
 <!doctype html>
@@ -95,6 +98,15 @@ const {
     </script>
 
     <title>{title}</title>
+    <meta name="description" content={description}>
+    <link rel="canonical" href={canonicalUrl}>
+
+    <!-- Link previews -->
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Donaldson Attorneys Inc.">
+    <meta property="og:title" content={title}>
+    <meta property="og:description" content={description}>
+    <meta property="og:url" content={canonicalUrl}>
   </head>
   <body>
     {showNavbar && (

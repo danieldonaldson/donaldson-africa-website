@@ -4,6 +4,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
 <BaseLayout
   title="Donaldson Attorneys | Correspondent Services"
+  description="Correspondent attorney services in Johannesburg: appearances, filing and service in the Johannesburg Labour Court, Gauteng High Courts and Randburg, Roodepoort, Krugersdorp and Newlands Magistrate's Courts."
   navbarType="light"
   navbarTogglable={false}
   page="services"
@@ -50,7 +51,10 @@ import BaseLayout from '../layouts/BaseLayout.astro';
           <!-- Form -->
           <div class="form-styled bg-white mb-4">
             <!-- Form -->
-            <form id="messageUs" >
+            <form id="messageUs">
+                <!-- contactus.js also sends a name and message, which this short form doesn't ask for -->
+                <input type="hidden" id="contactName" value="">
+                <input type="hidden" id="message" value="Correspondent services enquiry: please contact me at the email address provided.">
                 <!-- Heading -->
                 <h4 class="form-heading mb-4">
                     Contact us now:

@@ -18,33 +18,20 @@ pnpm build
 pnpm preview
 ```
 
-## Deployment with Dokploy
+## Deployment
 
-This project is configured for deployment with Dokploy using Docker.
-
-### Dokploy Configuration
-
-1. **Repository**: Connect your Git repository to Dokploy
-2. **Build Method**: Docker
-3. **Port**: 80 (nginx serves on port 80 inside the container)
-4. **Environment Variables**: None required (all config is baked into the build)
-
-The Dockerfile uses a multi-stage build:
-- Stage 1: Installs dependencies with pnpm
-- Stage 2: Builds the Astro site
-- Stage 3: Serves the static files with nginx
-
-### Manual Docker Build & Test
+The site is served as static assets from a Cloudflare Worker on
+`donaldson.africa` and `www.donaldson.africa`. `wrangler.jsonc` holds the
+Worker config, and `public/_headers` sets the security headers.
 
 ```bash
-# Build the image
-docker build -t donaldson-africa-website .
-
-# Run locally
-docker run -p 8080:80 donaldson-africa-website
-
-# Visit http://localhost:8080
+# Build, then upload dist/ and deploy
+pnpm build
+npx wrangler deploy
 ```
+
+Wrangler isn't a project dependency, so `npx` fetches it. The first deploy on a
+machine asks you to sign in to Cloudflare (`npx wrangler login`).
 
 ## Project Structure
 
@@ -63,14 +50,13 @@ docker run -p 8080:80 donaldson-africa-website
 │   └── styles/                 # SCSS styles
 ├── public/
 │   └── assets/                 # Static assets (images, videos, fonts, CSS)
-├── Dockerfile                  # Docker configuration
-└── astro.config.mjs           # Astro configuration
+├── src/astro.config.mjs        # Astro configuration
+└── wrangler.jsonc              # Cloudflare Worker configuration
 ```
 
 ## Technology Stack
 
-- **Framework**: Astro 5.16.4
+- **Framework**: Astro 6
 - **Styling**: SCSS/Bootstrap 4
 - **Package Manager**: pnpm
-- **Deployment**: Docker + Dokploy
-- **Web Server**: nginx (in production)
+- **Hosting**: Cloudflare Workers (static assets)
