@@ -13,6 +13,9 @@
   var navbar = document.querySelector('.navbar');
   var navbarCollapse = document.querySelector('.navbar-collapse');
 
+  // The landing page has no navbar
+  if (!navbar) return;
+
   var isLight = false;
   var isCollapsed = false;
   var isTogglable = navbar.classList.contains('navbar-togglable');
